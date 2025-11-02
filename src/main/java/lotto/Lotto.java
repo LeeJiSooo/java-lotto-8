@@ -42,4 +42,19 @@ public class Lotto {
         return numbers;
     }
 
+    /**
+     * 다른 로또와 몇 개의 번호가 일치하는지 반환
+     */
+    public int countMatchingNumbers(Lotto otherLotto) {
+        return (int) this.numbers.stream()
+                .filter(otherLotto.getNumbers()::contains)
+                .count();
+    }
+
+    /**
+     * 이 로또가 특정 번호를 포함하는지 확인 (보너스 번호 체크용)
+     */
+    public boolean contains(int number) {
+        return this.numbers.contains(number);
+    }
 }
